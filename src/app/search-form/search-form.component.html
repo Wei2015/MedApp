@@ -1,0 +1,99 @@
+<div class="container-fluid">
+  <mat-card>
+      <mat-card-title style="text-align: center; background-color:lavenderblush">
+          <h3>Customized Searching Options</h3>
+      </mat-card-title>
+      <mat-card-content>
+      <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-sm-3">
+                <span><p>Search Input: </p></span>
+                <mat-form-field hintLabel="Max 30 characters">
+                  <input matInput #input maxLength= "30" placeholder="Your keywords"  
+                  [(ngModel)] = "inputContent.keyword" name="keyword" required>
+                  <mat-hint align="end">{{input.value?.length || 0}}/30</mat-hint>
+                </mat-form-field>
+                <p>Your input: {{inputContent.keyword}}</p>
+            </div>
+        
+            <div class="col-sm-3">
+              <span><p>From:</p></span>
+              <mat-form-field>
+                <input matInput [(ngModel)]= "fromDate" name = "fromDate"  (ngModelChange)= "getFromDate($event)" 
+                [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="Choose a date" required>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+              <p>You picked: {{inputContent.fromDate}}</p>
+            </div>
+            <div class="col-sm-3">
+                <span><p>To: </p></span>
+              <mat-form-field>
+                <input matInput [(ngModel)]= "toDate" name = "toDate"  (ngModelChange)= "getToDate($event)"
+                 [min]="fDate" [max]="maxDate" [matDatepicker]="picker2" placeholder="Choose a date" required>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+              <p>You picked: {{inputContent.toDate}}</p>
+            </div>
+            <div class="col-sm-3">
+                <span><p>Number of Papers Shown: </p></span>
+              <mat-form-field>
+                  <mat-select [(value)]="inputContent.numberOfItems">
+                    <mat-option value="5">5</mat-option>
+                    <mat-option value="10">10</mat-option>
+                    <mat-option value="20">20</mat-option>
+                    <mat-option value="50">50</mat-option>
+                  </mat-select>
+              </mat-form-field>
+             <p>You selected: {{inputContent.numberOfItems}}</p>
+            </div>
+        </div>
+        <mat-card-actions align="end">
+            <button type="submit" class="btn btn-success" [disabled]="f.invalid" >Submit</button>
+            <button type="reset" class="btn btn-primary" >Reset</button>
+      </mat-card-actions>
+      </form>
+    </mat-card-content> 
+  </mat-card>
+</div>
+
+
+<br>
+<div class="container-fluid" *ngIf="(words.length) && (!infos.length)">
+    <mat-card>
+        <mat-card-title style="text-align: left; background-color:lavenderblush">
+            <h4>No paper found. Do you want to try some related words?</h4>
+        </mat-card-title>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item *ngFor="let word of words">
+                    <h4 style="white-space: normal;" mat-line>{{word.item}}</h4> 
+                    <p mat-line>Weight: {{word.weight}}</p>
+                <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+    </mat-card>
+  </div>
+<br>
+
+
+<div class="container-fluid">
+    <mat-card>
+        <mat-card-title style="text-align: center; background-color:lavenderblush">
+            <h3>Search Results</h3>
+        </mat-card-title>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item *ngFor="let info of infos">
+                    <h4 style="white-space: normal;" mat-line>{{info.summary}}</h4> 
+                    <p mat-line>Date: {{info.date}}</p>
+                    <p mat-line>Tag: {{info.tag}}</p> 
+                    <a mat-line href={{info.link}}><span>{{info.link}}</span></a>
+                <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+    </mat-card>
+  </div>

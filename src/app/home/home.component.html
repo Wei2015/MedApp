@@ -1,0 +1,37 @@
+
+<div class="container jumbotron"
+    fxLayout="row"
+    fxLayout.sm="column" 
+    fxLayout.xs="column" 
+    fxLayoutAlign.xs="start center"
+    fxLayoutAlign.sm="start center" 
+    fxLayoutAlign.gt-sm="center center">
+
+  <div fxFlex >
+    <mat-card class = "container_sm">
+      <div class = "center">
+      <h1>Medical Frontier Learning App</h1>
+      <br>
+      </div>
+      <span>Our website utilizes state-of-art NLP algorithms to provide you weekly updated summary on latest medical research!</span>
+    </mat-card>
+  </div>
+
+  
+</div>
+
+<div class="container_sm">
+<mat-card class= "card">
+    
+    <h2><img mat-card-avatar src="assets/images/icon.png"> What you can do with our App?</h2> 
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item><li>You can browse recent research summary based on selected topics via <a routerLink = "/news"> News.</a></li></mat-list-item>
+        <mat-list-item><li>You can customize your peronalized interests via <a routerLink = "/search"> Search.</a></li></mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    
+</mat-card>
+</div>
+
+<app-category></app-category>

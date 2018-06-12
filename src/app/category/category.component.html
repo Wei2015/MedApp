@@ -1,0 +1,24 @@
+<div class= "container_sm"><br><br>
+<!--Carousel Wrapper-->
+<mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation " [animation]="'slide'">
+   
+    <mdb-slide  *ngFor="let category of categories">
+      
+            <div class="slide card carousel_custom"  >
+                
+                <img fxFlexAlign="center" src="{{category.image}}" alt={{category.name}}>
+                    
+                <div class="card-body">
+                    <h4 class="card-title">{{category.name }}</h4>
+                    <p>{{category.description}}</p>
+                    <a ng-href="/news" class="btn btn-primary waves-light" mdbRippleRadius>Learn More</a>
+                </div>
+               
+            </div>
+       
+       
+    </mdb-slide>
+  
+</mdb-carousel>
+<!--/.Carousel Wrapper-->
+</div>      

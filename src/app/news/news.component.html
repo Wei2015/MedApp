@@ -1,0 +1,119 @@
+<app-search></app-search>
+
+<div class="container-fluid">
+  <mat-card>
+    <mat-card-title style="text-align: center; background-color:rgb(219, 178, 124);">
+            <h3>Health News From Other Websites</h3>
+    </mat-card-title>
+  </mat-card>
+
+<mat-accordion >
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            sciencedaily.com
+          </mat-panel-title>
+          <mat-panel-description>
+              General Health 
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <mat-card class = "card-feed-entry" *ngFor="let feed of feeds1" >
+              <mat-card-title> {{feed.title}} </mat-card-title>
+              <mat-card-subtitle>{{feed.author}} - {{feed.pubDate | date: 'dd-MM-yyyy' }}</mat-card-subtitle>
+              <mat-card-content>
+                <span>{{feed.description | stripHtmlTags }}</span>
+                <br>
+                <a href={{feed.link|stripHtmlTags}}><span>{{feed.link | stripHtmlTags}}</span></a>
+            
+              </mat-card-content>
+          </mat-card>
+      </mat-expansion-panel>
+    
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            medicinenet.com
+          </mat-panel-title>
+          <mat-panel-description>
+              General Health 
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <mat-card class = "card-feed-entry" *ngFor="let feed of feeds2" >
+              <mat-card-title> {{feed.title}} </mat-card-title>
+              <mat-card-subtitle>{{feed.author}} - {{feed.pubDate | date: 'dd-MM-yyyy' }}</mat-card-subtitle>
+              <mat-card-content>
+                <span>{{feed.description | stripHtmlTags }}</span>
+                <br>
+                <a href={{feed.link|stripHtmlTags}}><span>{{feed.link | stripHtmlTags}}</span></a>
+              </mat-card-content>
+          </mat-card>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            getbetterhealth.com
+          </mat-panel-title>
+          <mat-panel-description>
+              Health News
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <mat-card class = "card-feed-entry" *ngFor="let feed of feeds3" >
+              <mat-card-title> {{feed.title}} </mat-card-title>
+              <mat-card-subtitle>{{feed.author}} - {{feed.pubDate | date: 'dd-MM-yyyy' }}</mat-card-subtitle>
+              <mat-card-content>
+                <span>{{feed.description | stripHtmlTags }}</span>
+                <br>
+                <a href={{feed.link|stripHtmlTags}}><span>{{feed.link | stripHtmlTags}}</span></a>
+              </mat-card-content>
+          </mat-card>
+      </mat-expansion-panel>
+    
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            medicalnewstoday.com
+          </mat-panel-title>
+          <mat-panel-description>
+              HIV/AIDS
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <mat-card class = "card-feed-entry" *ngFor="let feed of aidsFeeds" >
+              <mat-card-title> {{feed.title}} </mat-card-title>
+              <mat-card-subtitle>{{feed.author}} - {{feed.pubDate | date: 'dd-MM-yyyy' }}</mat-card-subtitle>
+              <mat-card-content>
+                <span>{{feed.description | stripHtmlTags }}</span>
+                <br>
+                <a href={{feed.link|stripHtmlTags}}><span>{{feed.link | stripHtmlTags}}</span></a>
+            
+              </mat-card-content>
+          </mat-card>
+      </mat-expansion-panel>
+
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            medicalnewstoday.com
+          </mat-panel-title>
+          <mat-panel-description>
+              Alzheimer’s Disease
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <mat-card class = "card-feed-entry" *ngFor="let feed of alzheimerFeeds" >
+              <mat-card-title> {{feed.title}} </mat-card-title>
+              <mat-card-subtitle>{{feed.author}} - {{feed.pubDate | date: 'dd-MM-yyyy' }}</mat-card-subtitle>
+              <mat-card-content>
+                <span>{{feed.description | stripHtmlTags }}</span>
+                <br>
+                <a href={{feed.link|stripHtmlTags}}><span>{{feed.link | stripHtmlTags}}</span></a>
+            
+              </mat-card-content>
+          </mat-card>
+      </mat-expansion-panel>
+ 
+</mat-accordion>
+</div>
+
+
+

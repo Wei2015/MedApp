@@ -1,0 +1,34 @@
+<div class="container">
+
+     <div fxFlex>     
+        <h3>Contact Us</h3>
+        <hr>  
+     </div>
+
+    <div fxFlex fxLayout="row" fxLayoutGap="10px">
+      <div>
+        <h3>Location Information: </h3>     
+              <h4>Our Address: </h4>
+                      <address >
+                            1 Washington Square<br> San Jose, CA 95192<br>
+                        <i class="fa fa-phone"></i>: 408-924-1000 <br>
+                        <i class="fa fa-envelope"></i>:
+                        <a href="mailto:medApp@gmail.com">medApp@gmail.com</a>
+                      </address>
+               <p></p>
+                    <a md-raised-button href="tel:+14089241000"><i class="fa fa-phone"></i> Call</a>
+                    <a md-raised-button><i class="fa fa-skype"></i> Skype</a>
+                    <a md-raised-button href="mailto:medApp@gmail.com"><i class="fa fa-envelope-o"></i> Email</a>
+                
+      </div>
+        <hr>
+      <div>
+            <h4>{{title}}</h4>
+            <agm-map [latitude]= "lat" [longitude]="lng" [zoom]="15">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>       
+            </agm-map>
+           
+      </div>
+        
+    </div>
+</div>
